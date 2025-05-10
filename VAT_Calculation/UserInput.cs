@@ -23,7 +23,7 @@ namespace VAT_Calculation
                 "Ноябрь",
                 "Декабрь"
         };
-        public int UserInputSalary(int monthNumber)
+        public double UserInputSalary(int monthNumber)
         {
             Console.WriteLine("---------------------------------------------------------------------------------------");
             Console.Write($"Введите зарплату за {_months[monthNumber]}:");
@@ -32,7 +32,7 @@ namespace VAT_Calculation
             {
                 throw new Exception("Не корректный ввод");
             }
-            if (int.TryParse(salary, out int result))
+            if (double.TryParse(salary, out double result))
             {
                 return result;
             }
