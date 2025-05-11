@@ -32,6 +32,7 @@ namespace VAT_Calculation
         public double TotalTaxAmount => _totalTaxAmount;
         private double _salary;
         public double Salary => _salary;
+
         public void VATCalculation(double salary, CalculateVAT calculationSystem)
         {
             _salary = salary;
