@@ -38,6 +38,7 @@ namespace VAT_Calculation
                 listOfSalaries[monthNumber] = result;
                 Console.WriteLine("В этом месяце есть премия?");
                 string userAnswer = Console.ReadLine();
+                userAnswer = userAnswer.ToUpper(); 
                 if (string.IsNullOrEmpty(userAnswer))
                 {
                     throw new Exception("Не корректный ввод");
