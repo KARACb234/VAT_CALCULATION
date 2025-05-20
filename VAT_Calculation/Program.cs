@@ -8,11 +8,12 @@
             Calculation calculation = new Calculation();
             CalculateVAT _vATCalculations = new CalculateVAT(); 
             View view = new View();
+            ProgramData data = new ProgramData();
             for (int i = 0; i < 12; i++)
             {
                 double salary = userInput.UserInputSalary(i);
-                calculation.VATCalculation(salary, _vATCalculations);
-                view.ShowInformation(calculation);
+                calculation.VATCalculation(salary, _vATCalculations, data);
+                view.ShowInformation(data);
             }
         }
     }

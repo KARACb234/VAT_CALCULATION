@@ -9,7 +9,7 @@ namespace VAT_Calculation
     public class UserInput
     {
         private double[] listOfSalaries = new double[12];
-        private readonly string[] _months = new[]
+        private readonly string[] _months = 
         {
                 "Январь",
                 "Февраль",

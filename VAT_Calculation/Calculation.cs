@@ -1,12 +1,4 @@
-﻿using System;                                                       using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Dynamic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VAT_Calculation
+﻿namespace VAT_Calculation
 {
     public class CalculateVAT
     {
@@ -19,27 +11,16 @@ namespace VAT_Calculation
             return salary - tax;
         }
     }
-  
-    public class Calculation 
-    {
-        private double _grossSalary;
-        public double GetGrossSalary => _grossSalary;
-        private double _netSalary;
-        public double GetNetSalary => _netSalary;
-        private double _tax;
-        public double Tax => _tax; 
-        private double _totalTaxAmount;
-        public double TotalTaxAmount => _totalTaxAmount;
-        private double _salary;
-        public double Salary => _salary;
 
-        public void VATCalculation(double salary, CalculateVAT calculationSystem)
+    public class Calculation
+    {
+        public void VATCalculation(double salary, CalculateVAT calculationSystem, ProgramData data)
         {
-            _salary = salary;
-            _tax = calculationSystem.ReturnTax(_salary, _grossSalary);
-            _grossSalary += salary;
-            _netSalary += calculationSystem.ReturnNetSalary(_salary, _tax);
-            _totalTaxAmount += _tax;
+            data.Salary = salary;
+            data.Tax = calculationSystem.ReturnTax(data.Salary, data.GrossSalary);
+            data.GrossSalary += salary;
+            data.NetSalary += calculationSystem.ReturnNetSalary(data.Salary, data.Tax);
+            data.TotalTaxAmount += data.Tax;
         }
     }
 
@@ -48,7 +29,7 @@ namespace VAT_Calculation
         public double UpperLimit;
         public double Rate;
     }
-    public static class TaxUtil 
+    public static class TaxUtil
     {
         private static readonly List<TaxBracket> brackets = new List<TaxBracket>()
         {
